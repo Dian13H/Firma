@@ -15,30 +15,6 @@ let xAnterior = 0, yAnterior = 0, xActual = 0, yActual = 0;
 const COLOR = 'blue';
 const GROSOR = 2;
 
-// Boton enviar del form
-form.addEventListener('submit', (e) => {
-    // Previene que se envie el formulario
-    e.preventDefault(); 
-
-    // Borramos la imagen anterior para poner la nueva a enviar
-    const resultadoContenedor = document.querySelector('.firma-resultado-contenedor');
-    const imagenAnterior = document.querySelector('.firma-imagen');
-    if(imagenAnterior)
-        imagenAnterior.remove();
-
-    // Creamos la nueva imagen con lo que tenga el canvas
-    const imagenURL = canvas.toDataURL();
-    const imagen = document.createElement('img');
-    imagen.src = imagenURL;
-    imagen.height = canvas.height;
-    imagen.width = canvas.width;
-    imagen.classList.add('firma-imagen');
-    // Agregamos la imagen al HTML
-    resultadoContenedor.appendChild(imagen);
-    // Limpiamos el canvas
-    limpiarPad();
-});
-
 // Función que limpia el canvas poniendole un fondo blanco
 const limpiarPad = () => {
     ctx.fillStyle = 'white';
